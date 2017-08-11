@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>聚美优品</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/confirm.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/swiper-3.4.2.jquery.min.js"></script>
+    <script src="./js/jquery.fly.min.js"></script>
+    <script src="./js/jquery.cookie.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/confirm.js"></script>
+    <style>
+        .flyer-img {
+            background: red;
+            width: 100px;
+            height: 100px;
+            /*border-radius: 50%;*/
+            display: block;
+            z-index: 100
+        }
+    </style>
+</head>
+<body>
+<!--头部分-->
+<div style="background: white;">
+    <div class="cart_top" id="headerTopLeft">
+        <div class="user_box">
+            <div>聚美优品欢迎您，<a href="./login.html">登录</a><i class="tips">|</i>
+                <a href="./signup.htmlp">免费注册</a></div>
+        </div>
+    </div>
+    <div class="cart_top" id="headerTopLeft1" style="display: none">
+        <div class="user_box">
+            <div>欢迎您，<a href="./index.html" class="username"></a>&nbsp;
+                <a href="./index.html" class="out signout">[退出]</a><i class="tips">|</i>
+            </div>
+        </div>
+    </div>
+    <div class="cart_header_box">
+        <div class="cart_header clearfix">
+            <h1 class="logo_box">
+                <a href="./index.html" target="_blank" id="home">
+                    <img src="./images/cart_logo.jpg" alt="化妆品团购">
+                </a>
+            </h1>
+            <div class="order_path order_path_2">
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--主要内容部分-->
+<div id="container" style="width: auto;">
+    <div id="JS_confirmation_main">
+        <div data-reactid=".0">
+            <noscript data-reactid=".0.0"></noscript>
+            <noscript data-reactid=".0.1"></noscript>
+            <div class="main" data-reactid=".0.2">
+                <div class="border_line address-container" data-reactid=".0.2.0">
+                    <div class="main_content" style="display:block;" data-reactid=".0.2.0.0">
+                        <h2 class="title" data-reactid=".0.2.0.0.0">1 地址选择</h2>
+                        <div class="site_edit site_edit_tip" style="padding:0;left:-20px;" data-reactid=".0.2.0.0.1">
+                            <div class="tips_tit tips_tit_tip" style="width:auto;" data-reactid=".0.2.0.0.1.0"><p
+                                    data-reactid=".0.2.0.0.1.0.0">
+                                温馨提示：您的订单内含有海外购商品，根据国家法律规定，您需要上传身份证号，以便海关清关，否则有可能收不到包裹！</p></div>
+                        </div>
+                        <div class="address" data-reactid=".0.2.0.0.2">
+                            <div class="address_list clearfix " data-reactid=".0.2.0.0.2.0">
+                                <div class="address_list clearfix" data-reactid=".0.2.0.0.2.0.0"></div>
+                            </div>
+                            <div class="address-operation" data-reactid=".0.2.0.0.2.1">
+                                <div class="address_express clearfix" data-reactid=".0.2.0.0.2.1.0">
+                                    <noscript data-reactid=".0.2.0.0.2.1.0.0"></noscript>
+                                    <div class="fl" data-reactid=".0.2.0.0.2.1.0.1"><a href="javascript:" class="add"
+                                                                                       data-reactid=".0.2.0.0.2.1.0.1.0"><i
+                                            class="icon" data-reactid=".0.2.0.0.2.1.0.1.0.0">+</i><span
+                                            data-reactid=".0.2.0.0.2.1.0.1.0.1">使用新地址</span></a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <noscript data-reactid=".0.2.0.0.3"></noscript>
+                        <noscript data-reactid=".0.2.0.0.4"></noscript>
+                    </div>
+                </div>
+                <div class="border_line delivery-date" data-reactid=".0.2.1">
+                    <div class="main_content" data-reactid=".0.2.1.0"><h2 class="title" data-reactid=".0.2.1.0.0"><span
+                            data-reactid=".0.2.1.0.0.0">2 送货时间</span><span
+                            style="color:#666666;font-size:12px;font-weight:normal;font-family:&quot;宋体&quot;;margin-left:20px;"
+                            data-reactid=".0.2.1.0.0.1"></span></h2>
+                        <div class="prefer_delivery_day" data-reactid=".0.2.1.0.1">
+                            <div class="clearfix" data-reactid=".0.2.1.0.1.0">
+                                <div class="box active" data-reactid=".0.2.1.0.1.0.$0"><input type="radio" readonly=""
+                                                                                              checked=""
+                                                                                              name="prefer_delivery_day"
+                                                                                              data-reactid=".0.2.1.0.1.0.$0.0"><label
+                                        data-reactid=".0.2.1.0.1.0.$0.1">仅工作日送货</label></div>
+                                <div class="box" data-reactid=".0.2.1.0.1.0.$1"><input type="radio" readonly=""
+                                                                                       name="prefer_delivery_day"
+                                                                                       data-reactid=".0.2.1.0.1.0.$1.0"><label
+                                        data-reactid=".0.2.1.0.1.0.$1.1">仅周末送货</label></div>
+                                <div class="box" data-reactid=".0.2.1.0.1.0.$2"><input type="radio" readonly=""
+                                                                                       name="prefer_delivery_day"
+                                                                                       data-reactid=".0.2.1.0.1.0.$2.0"><label
+                                        data-reactid=".0.2.1.0.1.0.$2.1">工作日/周末/假日均可</label></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border_line orders-list" style="border-bottom:none;" data-reactid=".0.2.2">
+                    <div class="main_content" style="position:static;" data-reactid=".0.2.2.0">
+                        <h2 class="title" data-reactid=".0.2.2.0.0"><span data-reactid=".0.2.2.0.0.0">3 商品清单</span>
+                            <div class="fr back-to-cart"
+                                 style="line-height:35px;padding:0 10px;margin-top:10px;font-family:Tahoma, Geneva, sans-serif;"
+                                 data-reactid=".0.2.2.0.0.1"><a
+                                    style="font-size:12px;text-decoration:none;font-weight:normal;"
+                                    href="./cart.html" data-reactid=".0.2.2.0.0.1.0">返回修改购物车</a></div>
+                        </h2>
+                        <div class="order" data-reactid=".0.2.2.0.1:$0">
+                            <div style="margin-bottom:20px;" data-reactid=".0.2.2.0.1:$0.0">
+                                <div class="box JS_order_box" style="border-top:none;" data-reactid=".0.2.2.0.1:$0.0.0">
+                                    <div class="order_header clearfix"
+                                         style="background:#fafafa;width:918px;position:relative;left:-1px;padding-left:0px;border:1px solid #ccc;"
+                                         data-reactid=".0.2.2.0.1:$0.0.0.0">
+                                        <div class="fl"
+                                             style="width:465px;text-align:left;border-left:5px solid #ed145b;"
+                                             data-reactid=".0.2.2.0.1:$0.0.0.0.0"><strong
+                                                style="font-size:14px;position:relative;left:10px;color:#0abfde;"
+                                                data-reactid=".0.2.2.0.1:$0.0.0.0.0.0">聚美优品发货</strong></div>
+                                        <div class="fl" style="width:110px;" data-reactid=".0.2.2.0.1:$0.0.0.0.1">数量
+                                        </div>
+                                        <div class="fl" style="width:160px;" data-reactid=".0.2.2.0.1:$0.0.0.0.2">单价
+                                        </div>
+                                        <div class="fl cart_taxes" style="width:0;display:none;"
+                                             data-reactid=".0.2.2.0.1:$0.0.0.0.3"><span class="hover-point"
+                                                                                        data-reactid=".0.2.2.0.1:$0.0.0.0.3.0"><span
+                                                data-reactid=".0.2.2.0.1:$0.0.0.0.3.0.0">税费</span><span
+                                                class="cart_taxes_tips_icon"
+                                                data-reactid=".0.2.2.0.1:$0.0.0.0.3.0.1"></span><div
+                                                class="cart_taxes_tips" data-reactid=".0.2.2.0.1:$0.0.0.0.3.0.2"><p
+                                                class="triangle" data-reactid=".0.2.2.0.1:$0.0.0.0.3.0.2.0"> </p><p
+                                                class="cart_taxes_tips_title"
+                                                data-reactid=".0.2.2.0.1:$0.0.0.0.3.0.2.1"></p><span
+                                                data-reactid=".0.2.2.0.1:$0.0.0.0.3.0.2.2"></span><span
+                                                data-reactid=".0.2.2.0.1:$0.0.0.0.3.0.2.3"></span></div></span></div>
+                                        <div class="fl" style="width:170px;" data-reactid=".0.2.2.0.1:$0.0.0.0.4">小计
+                                        </div>
+                                    </div>
+                                    <div style="padding:0px;" data-reactid=".0.2.2.0.1:$0.0.0.1">
+                                        <div class="clearfix order_info" data-reactid=".0.2.2.0.1:$0.0.0.1.$4">
+                                            <div class="fl relative"
+                                                 style="width:450px;padding:16px 0;line-height:21px;"
+                                                 data-reactid=".0.2.2.0.1:$0.0.0.1.$4.0">
+                                                <div data-reactid=".0.2.2.0.1:$0.0.0.1.$4.0.0">
+                                                    <div data-reactid=".0.2.2.0.1:$0.0.0.1.$4.0.0.0">
+                                                        <div style="overflow:hidden;"
+                                                             data-reactid=".0.2.2.0.1:$0.0.0.1.$4.0.0.0.0"><a
+                                                                href="./detail.html"
+                                                                target="_blank" class="item-pic"
+                                                                data-reactid=".0.2.2.0.1:$0.0.0.1.$4.0.0.0.0.0"><img
+                                                                src="./images/3722480_pop_375_500_1.jpg"
+                                                                alt="范思哲晶钻女用香水 5ml"
+                                                                data-reactid=".0.2.2.0.1:$0.0.0.1.$4.0.0.0.0.0.0"></a><a
+                                                                href="./detail.html"
+                                                                target="_blank" class="order_title JS_order_title">2017新品 夏季透气款 超舒适不闷热文胸</a><span class="info">数量：1</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="fl goodsNum" style="width:115px;font-weight:normal;text-align:center;">0
+                                            </div>
+                                            <div class="fl price"
+                                                 style="width:160px;line-height:15px;position:relative;top:39px;"><span>¥39.30</span></div>
+                                            <div class="fl price" style="width:110px;"
+                                                 data-reactid=".0.2.2.0.1:$0.0.0.1.$4.3">
+                                                <span class="price-to-align" style="display:none;" data-reactid=".0.2.2.0.1:$0.0.0.1.$4.3.0">--</span>
+                                            </div>
+                                            <div class="fl price" style="width:170px;"
+                                                 data-reactid=".0.2.2.0.1:$0.0.0.1.$4.4"><span class="price-to-align"
+                                                                                               data-reactid=".0.2.2.0.1:$0.0.0.1.$4.4.0">¥39.90</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <noscript data-reactid=".0.2.2.0.1:$0.0.0.2"></noscript>
+                                    <noscript data-reactid=".0.2.2.0.1:$0.0.0.3"></noscript>
+                                    <div class="order_freight clearfix" data-reactid=".0.2.2.0.1:$0.0.0.4">
+                                        <div style="padding-top:5px;" data-reactid=".0.2.2.0.1:$0.0.0.4.0">
+                                            <div class="fl txt_tips" data-reactid=".0.2.2.0.1:$0.0.0.4.0.0"><span
+                                                    data-reactid=".0.2.2.0.1:$0.0.0.4.0.0.0">配送方式</span><span
+                                                    style="color:#0abfde;"
+                                                    data-reactid=".0.2.2.0.1:$0.0.0.4.0.0.1"><span
+                                                    data-reactid=".0.2.2.0.1:$0.0.0.4.0.0.1.0"> </span><span
+                                                    data-reactid=".0.2.2.0.1:$0.0.0.4.0.0.1.1">（享指定商品包邮，已减免¥5）</span></span><span
+                                                    data-reactid=".0.2.2.0.1:$0.0.0.4.0.0.2">：</span><span
+                                                    data-reactid=".0.2.2.0.1:$0.0.0.4.0.0.3">快递　</span></div>
+                                            <div class="clearfix" style="display:inline-block;float:right;"
+                                                 data-reactid=".0.2.2.0.1:$0.0.0.4.0.1">
+                                                <div class="fr" data-reactid=".0.2.2.0.1:$0.0.0.4.0.1.0">
+                                                    <div class="clearfix" data-reactid=".0.2.2.0.1:$0.0.0.4.0.1.0.0">
+                                                        <div class="fr price_info"
+                                                             style="position:relative;left:-15px;padding-left:30px;width:110px;"
+                                                             data-reactid=".0.2.2.0.1:$0.0.0.4.0.1.0.0.0"><span
+                                                                class="JS_delivery_fee price-to-align fl"
+                                                                data-reactid=".0.2.2.0.1:$0.0.0.4.0.1.0.0.0.0"
+                                                                style="margin-left: 12px;">¥0.00</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="order_rule clearfix coupon" style="border-bottom:none;"
+                                         data-reactid=".0.2.2.0.1:$0.0.0.5">
+                                        <div data-reactid=".0.2.2.0.1:$0.0.0.5.0">
+                                            <div class="clearfix" data-reactid=".0.2.2.0.1:$0.0.0.5.0.0"></div>
+                                            <div style="margin-left:20px;" class="use-card-container clearfix"
+                                                 data-reactid=".0.2.2.0.1:$0.0.0.5.0.1"><span class="corn"
+                                                                                              data-reactid=".0.2.2.0.1:$0.0.0.5.0.1.0">+</span><span
+                                                    class="inline-block pink" style="margin-left:5px;"
+                                                    data-reactid=".0.2.2.0.1:$0.0.0.5.0.1.1">使用现金券和红包</span></div>
+                                            <div class="hide" data-reactid=".0.2.2.0.1:$0.0.0.5.0.2">
+                                                <div class="card-line" data-reactid=".0.2.2.0.1:$0.0.0.5.0.2.$0">
+                                                    <div data-reactid=".0.2.2.0.1:$0.0.0.5.0.2.$0.0"><span
+                                                            class="use-card-text"
+                                                            data-reactid=".0.2.2.0.1:$0.0.0.5.0.2.$0.0.0">使用现金券：</span><a
+                                                            href="javascript:" class="choose_promo_card"
+                                                            data-reactid=".0.2.2.0.1:$0.0.0.5.0.2.$0.0.1">请选择您的现金券</a><span
+                                                            class="or" style="margin:0 10px;"
+                                                            data-reactid=".0.2.2.0.1:$0.0.0.5.0.2.$0.0.2">或</span><a
+                                                            class="pink direct_input"
+                                                            data-reactid=".0.2.2.0.1:$0.0.0.5.0.2.$0.0.3">直接输入券号</a>
+                                                    </div>
+                                                    <div class="choose_promo_card_box hide" style="height:45px;"
+                                                         data-reactid=".0.2.2.0.1:$0.0.0.5.0.2.$0.1"><span
+                                                            style="margin-left:5px;"
+                                                            data-reactid=".0.2.2.0.1:$0.0.0.5.0.2.$0.1.0">您没有可以使用的现金券哟~</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-line" data-reactid=".0.2.2.0.1:$0.0.0.5.0.2.$1"
+                                                     style="margin-bottom: 10px;">
+                                                    <div data-reactid=".0.2.2.0.1:$0.0.0.5.0.2.$1.0"><span
+                                                            class="use-card-text"
+                                                            data-reactid=".0.2.2.0.1:$0.0.0.5.0.2.$1.0.0">使用红包：</span><a
+                                                            href="javascript:" class="choose_promo_card"
+                                                            data-reactid=".0.2.2.0.1:$0.0.0.5.0.2.$1.0.1">请选择您的红包</a><span
+                                                            class="or" style="margin:0 10px;"
+                                                            data-reactid=".0.2.2.0.1:$0.0.0.5.0.2.$1.0.2">或</span><a
+                                                            class="pink direct_input"
+                                                            data-reactid=".0.2.2.0.1:$0.0.0.5.0.2.$1.0.3">直接输入券号</a>
+                                                    </div>
+                                                    <div class="choose_promo_card_box hide" style="height:45px;"
+                                                         data-reactid=".0.2.2.0.1:$0.0.0.5.0.2.$1.1"><span
+                                                            style="margin-left:5px;"
+                                                            data-reactid=".0.2.2.0.1:$0.0.0.5.0.2.$1.1.0">您没有可以使用的红包哟~</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix" style="height:15px;width:100%;background:#eee7e1;" data-reactid=".0.2.3"></div>
+                <div class="border_line bottom-confirm" data-reactid=".0.2.4" style="margin-bottom: 62px;">
+                    <div class="line invoice-container" data-reactid=".0.2.4.0">
+                        <div class="inovice-wraper fl" data-reactid=".0.2.4.0.0">
+                            <div class="inv_wrap" style="text-align:left;" data-reactid=".0.2.4.0.0.0">
+                                <div data-reactid=".0.2.4.0.0.0.0"><span data-reactid=".0.2.4.0.0.0.0.0"><input
+                                        id="need-invoice-check" type="checkbox" class="is_need_inv"
+                                        data-reactid=".0.2.4.0.0.0.0.0.0"><label for="need-invoice-check"
+                                                                                 data-reactid=".0.2.4.0.0.0.0.0.1"> 索要发票 </label></span><span
+                                        class="inv_quesstion" data-reactid=".0.2.4.0.0.0.0.1"><div
+                                        data-reactid=".0.2.4.0.0.0.0.1.0"><span
+                                        data-reactid=".0.2.4.0.0.0.0.1.0.0">1.</span><strong
+                                        data-reactid=".0.2.4.0.0.0.0.1.0.1">发票类型：</strong><span
+                                        data-reactid=".0.2.4.0.0.0.0.1.0.2">聚美目前只支持开具普通发票</span><br
+                                        data-reactid=".0.2.4.0.0.0.0.1.0.3"><span
+                                        data-reactid=".0.2.4.0.0.0.0.1.0.4">2.</span><strong
+                                        data-reactid=".0.2.4.0.0.0.0.1.0.5">发票金额：</strong><span
+                                        data-reactid=".0.2.4.0.0.0.0.1.0.6">不包含运费金额以及礼品卡支付、现金券和红包抵扣的金额；</span><br
+                                        data-reactid=".0.2.4.0.0.0.0.1.0.7"><span
+                                        data-reactid=".0.2.4.0.0.0.0.1.0.8">3.</span><strong
+                                        data-reactid=".0.2.4.0.0.0.0.1.0.9">发票内容：</strong><br
+                                        data-reactid=".0.2.4.0.0.0.0.1.0.a"><span data-reactid=".0.2.4.0.0.0.0.1.0.b">1）交易单中聚美优品发货的商品，由聚美开具发票，发票内容根据购买商品所属分类确定。</span><br
+                                        data-reactid=".0.2.4.0.0.0.0.1.0.c"><span data-reactid=".0.2.4.0.0.0.0.1.0.d">2）交易单中非聚美优品发货的商品，由商家开具发票，发票内容由商家决定。</span><br
+                                        data-reactid=".0.2.4.0.0.0.0.1.0.e"><a href="http://www.jumei.com/help/fapiao"
+                                                                               target="_blank"
+                                                                               data-reactid=".0.2.4.0.0.0.0.1.0.f">更多信息</a><span
+                                        class="arrow" data-reactid=".0.2.4.0.0.0.0.1.0.g"></span></div></span></div>
+                                <div class="inv_info" style="display:block;" data-reactid=".0.2.4.0.0.0.1">
+                                    <div class="clearfix" style="_position:relative;" data-reactid=".0.2.4.0.0.0.1.2">
+                                        <div class="fl" data-reactid=".0.2.4.0.0.0.1.2.0"></div>
+                                    </div>
+                                    <div class="inv_note" data-reactid=".0.2.4.0.0.0.1.3">备注：</div>
+                                    <div style="width:500px;" data-reactid=".0.2.4.0.0.0.1.4">
+                                        <noscript data-reactid=".0.2.4.0.0.0.1.4.0"></noscript>
+                                        <div class="inv_note_line" data-reactid=".0.2.4.0.0.0.1.4.1"><span
+                                                data-reactid=".0.2.4.0.0.0.1.4.1.0">交易单</span><a class="inv_mark_pro"
+                                                                                                 href="javascript:void(0);"
+                                                                                                 data-reactid=".0.2.4.0.0.0.1.4.1.1"><span
+                                                data-reactid=".0.2.4.0.0.0.1.4.1.1.0">如下商品</span>
+                                            <div class="inv_pro_list" data-reactid=".0.2.4.0.0.0.1.4.1.1.1">
+                                                <ul data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0">
+                                                    <li data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$0">
+                                                        <div class="inv_pro_img"
+                                                             data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$0.0"><img
+                                                                src="http://p4.jmstatic.com/product/003/191/3191494_std/3191494_100_100.jpg"
+                                                                data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$0.0.0"></div>
+                                                        <div class="inv_pro_info"
+                                                             data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$0.1">
+                                                            <div data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$0.1.0">
+                                                                BBIA丝绒哑光雾面口红3.2g
+                                                            </div>
+                                                            <p data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$0.1.1"><span
+                                                                    data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$0.1.1.0">卖方：</span><span
+                                                                    data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$0.1.1.1">聚美优品</span>
+                                                            </p></div>
+                                                    </li>
+                                                    <li data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$1">
+                                                        <div class="inv_pro_img"
+                                                             data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$1.0"><img
+                                                                src="http://p4.jmstatic.com/product/003/191/3191494_std/3191494_100_100.jpg"
+                                                                data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$1.0.0"></div>
+                                                        <div class="inv_pro_info"
+                                                             data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$1.1">
+                                                            <div data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$1.1.0">
+                                                                BBIA丝绒哑光雾面口红3.2g
+                                                            </div>
+                                                            <p data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$1.1.1"><span
+                                                                    data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$1.1.1.0">卖方：</span><span
+                                                                    data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$1.1.1.1">聚美优品</span>
+                                                            </p></div>
+                                                    </li>
+                                                    <li data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$2">
+                                                        <div class="inv_pro_img"
+                                                             data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$2.0"><img
+                                                                src="http://p4.jmstatic.com/product/003/191/3191494_std/3191494_100_100.jpg"
+                                                                data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$2.0.0"></div>
+                                                        <div class="inv_pro_info"
+                                                             data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$2.1">
+                                                            <div data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$2.1.0">
+                                                                BBIA丝绒哑光雾面口红3.2g
+                                                            </div>
+                                                            <p data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$2.1.1"><span
+                                                                    data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$2.1.1.0">卖方：</span><span
+                                                                    data-reactid=".0.2.4.0.0.0.1.4.1.1.1.0.$2.1.1.1">聚美优品</span>
+                                                            </p></div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="inv_mark" data-reactid=".0.2.4.0.0.0.1.4.1.1.2"></div>
+                                        </a><span data-reactid=".0.2.4.0.0.0.1.4.1.2">暂不支持开具发票。</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="summary-container" data-reactid=".0.2.4.1">
+                        <div class="summary" data-reactid=".0.2.4.1.0">
+                            <div class="line line-text" data-reactid=".0.2.4.1.0.0"><span data-reactid=".0.2.4.1.0.0.0">共</span><span
+                                    class="pink" style="color:#ed145b;" data-reactid=".0.2.4.1.0.0.1">1</span><span>件商品,总商品金额:</span><span class="pink sum"
+                                                                                         data-reactid=".0.2.4.1.0.0.3">¥39.90</span>
+                            </div>
+                            <div class="line" data-reactid=".0.2.4.1.0.1:$3">
+                                <div class="line-text" data-reactid=".0.2.4.1.0.1:$3.0"><span
+                                        data-reactid=".0.2.4.1.0.1:$3.0.0">总运费</span><span
+                                        data-reactid=".0.2.4.1.0.1:$3.0.1">:</span><span class="pink sum"
+                                                                                         data-reactid=".0.2.4.1.0.1:$3.0.2">¥0.00</span>
+                                </div>
+                            </div>
+                            <div class="line need-pay" data-reactid=".0.2.4.1.0.2" style="margin-bottom: 12px;">
+                                <div class="line-text" data-reactid=".0.2.4.1.0.2.0"><span
+                                        data-reactid=".0.2.4.1.0.2.0.0">应付总额:</span><span class="pink sum"
+                                                                                          data-reactid=".0.2.4.1.0.2.0.1">¥39.90</span>
+                                </div>
+                            </div>
+                            <div class="confirm_pay main_content clearfix " style="background:#fafafa;height:42px;" data-reactid=".0.2.4.1.0.3">
+                                <!--<div class="fl back-to-cart" style="margin-top:19px;"><a href="./cart.html" style="text-decoration:none;font-size:14px;font-weight:normal;">返回修改购物车</a></div>-->
+                                <noscript data-reactid=".0.2.4.1.0.3.1"></noscript>
+                                <div class="submit_box clearfix" data-reactid=".0.2.4.1.0.3.2">
+                                    <div class="fl price_box" style="position:relative;top:8px;"
+                                         data-reactid=".0.2.4.1.0.3.2.0"><span
+                                            data-reactid=".0.2.4.1.0.3.2.0.0">应付总额：</span><span class="price"><span
+                                            data-reactid=".0.2.4.1.0.3.2.0.1.0">¥</span><span class="total_price">0</span></span></div>
+                                    <div class="fl" style="position:relative;top:10px;" data-reactid=".0.2.4.1.0.3.2.1">
+                                        <span style="cursor:pointer;font-weight:normal;font-size:18px;"
+                                              class="submit_btn" data-reactid=".0.2.4.1.0.3.2.1.0">确认交易</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--底部-->
+<div id="footer_container">
+    <div id="footer_textarea">
+        <div class="footer_con" id="footer_copyright">
+            <p class="footer_copy_con">
+                © 2013 北京创锐文化传媒有限公司 Jumei.com 保留一切权利。客服热线：400-123-8888 <br>
+                京公网安备 11010102001226 | <a href="＃" target="_blank">京ICP证111033号</a> | 食品流通许可证 SP1101051110165515（1-1）
+                | <a href="#" target="_blank">营业执照</a>
+            </p>
+            <p>
+                <a href="javascript:void(0)" class="footer_copy_logo logo01"></a>
+                <a href="" target="_blank"
+                   class="footer_copy_logo logo02"></a>
+                <a href="javascript:void(0)" class="footer_copy_logo logo03"></a>
+                <a href="javascript:void(0)" class="footer_copy_logo logo04"></a>
+                <a href=""
+                   target="_blank" class="footer_copy_logo logo05"></a>
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

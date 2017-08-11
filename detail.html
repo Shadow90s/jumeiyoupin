@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+<head>
+    <meta charset="UTF-8">
+    <title>聚美优品</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/detail.css">
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/jquery.fly.min.js"></script>
+    <script src="./js/jquery.cookie.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/detail.js"></script>
+    <style>
+        .flyer-img{
+            background: red;
+            width: 100px;
+            height:100px;
+            border-radius: 50%;
+            display: block;
+            z-index: 100;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body style="height: 100%;">
+<!--头部布局-->
+<div class="header header_wide_lv1">
+    <div class="header_top">
+        <div class="header_top_box">
+            <ul class="header_top_left" id="headerTopLeft">
+                <li>欢迎来到聚美！</li>
+                <li><a href="./login.html">请登录</a></li>
+                <li><a href="./signup.html">快速注册</a></li>
+            </ul>
+            <ul class="header_top_left" id="headerTopLeft1" style="display: none;">
+                <li class="signin">欢迎您，<span class="col_jumei">
+                    <a href="./index.html" class="username"></a>
+                </span> [ <a class="signout" href="./login.html">退出</a> ]</li>
+            </ul>
+            <ul class="header_top_right" id="headerTopRight">
+                <li><a href="#">正品保证</a></li>
+                <li><a href="#">订单查询</a></li>
+                <li><a href=""><s class="icon_favorite"></s>收藏的品牌</a></li>
+                <li class="item_ijumei">
+                    <a href="#">我的聚美<s class="icon_arrow_down"></s></a>
+                    <i class="icon_arrow_back"></i>
+                    <div class="sub_nav" style="display: none; height: auto; overflow: visible;">
+                        <ul>
+                            <li><a href="#">我的订单</a></li>
+                            <li><a href="#">我的现金券</a></li>
+                            <li><a href="#">我的红包</a></li>
+                            <li><a href="#">我的余额</a></li>
+                            <li><a href="#">我的提现退款</a></li>
+                            <li><a href="#">我的收藏</a></li>
+                            <li><a href="#">我的心愿单</a></li>
+                            <li><a href="#">会员中心</a></li>
+                            <li><a href="#">礼品卡兑换</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="item_mobile">
+                    <a href="#"><span class="line"></span><s class="icon_mobile"></s>手机聚美</a></li>
+                <li id="see_more">
+                    <span class="line"></span>
+                </li>
+                <li class="item_more">
+                    <a href="javascript:void(0)">更多<s class="icon_arrow icon_arrow_down"></s></a>
+                    <i class="icon_arrow_back"></i>
+                    <div class="sub_nav" style="display: none; height: auto; overflow: visible;">
+                        <ul>
+                            <li>
+                                <a href="#">邀请好友</a></li>
+                            <li>
+                                <a href="javascript:void(0)" id="bookmark_us"><span class="bottomline">加入收藏</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="er_box">新浪微博<span style="display: none;">
+                                <img src="./images/sina_er.png"></span></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="er_box">
+                                    聚美微信
+                                    <span style="display: none;">
+                                    <img src="./jumei_weixin_header1.png">
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">百度贴吧</a>
+                            </li>
+                            <li>
+                                <a href="#" class="er_box">
+                                    腾讯微博
+                                    <span style="display: none;">
+                                        <img src="./images/qq_er.png">
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="er_box">
+                                    人人公众主页
+                                    <span style="display: none;">
+                                        <img src="./images/renren_er.png">
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="header_center">
+        <h1 class="logo">
+            <a href="./index.html" id="home" title="聚美优品" style="background:url(./images/logo_new_v1.jpg) no-repeat top left;">
+                化妆品品牌排行榜大全网站聚美优品
+            </a>
+        </h1>
+        <div id="cart_box" class="cart_box">
+            <a id="cart" class="cart_link" href="#" rel="nofollow">
+                <img src="./images/cart.gif" width="28" height="28" class="cart_gif">
+                <span class="text">去购物车结算</span>
+                <span class="num" style="display: none;"></span>
+                <s class="icon_arrow_right"></s>
+            </a>
+            <div class="cart_content" id="cart_content">
+                <i class="cart-icons"></i>
+                <div class="cart_content_zero" style="display: none;">购物车中还没有商品，<br>快去挑选心爱的商品吧！</div>
+                <div class="cart_content_all" style="display: none;">
+                    <div class="cart_left_time">已超过购物车商品保留时间，请尽快结算。</div>
+                    <div class="cart_content_center"></div>
+                    <div class="con_all">
+                        <div class="price_whole">
+                            <span>共<span class="num_all"></span>件商品</span>
+                        </div>
+                        <div>
+                            <span class="price_gongji">共计<em>￥</em><span class="total_price">69</span></span>
+                            <a href="#" class="cart_btn">去购物车结算</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header_bottom">
+        <div class="channel_nav_box">
+            <div class="channel_nav_list_wrap">
+                <ul class="channel_nav_list">
+                    <li><a href="./index.html" class="home">首页</a></li>
+                    <li class="haitao_li"><a href="#">极速免税店</a>
+                    </li>
+                    <li class=""><a href="#">母婴特卖</a></li>
+                    <li class="meizhuang_li"><a href="#">美妆商城<b></b></a></li>
+                    <li class=""><a href="">国际轻奢</a></li>
+                    <li class="hover"><a href="#">服装运动</a></li>
+                    <li><a target="_blank" href="#">鞋包配饰</a>
+                    </li>
+                </ul>
+                <div class="header_pop_subAtc  box-shadow">
+                    <div class="mz_imglist">
+                        <a href="#"><img src="./images/30573_254_135_003-web.jpg"></a>
+                        <a href="#"><img src="./images/30573_254_135_005-web.jpg"></a>
+                    </div>
+                    <div class="mz_inner clearfix">
+                        <dl style="border-left:none">
+                            <dt class="item_int png"><a> 国际大牌</a></dt>
+                            <dd><a href="#">兰蔻</a></dd>
+                            <dd><a href="#">娇韵诗</a></dd>
+                            <dd><a href="#">伊丽莎白雅顿</a></dd>
+                            <dd><a href="#">雅诗兰黛</a></dd>
+                            <dd><a href="#">欧莱雅</a></dd>
+                            <dd><a href="#">兰芝</a></dd>
+                            <dd><a href="#">倩碧</a></dd>
+                            <dd><a href="#">SK-II</a></dd>
+                            <dd><a href="#">雅漾</a></dd>
+                            <dd><a href="#">菲诗小铺</a></dd>
+                            <dd><a href="#">悦诗风吟</a></dd>
+                        </dl>
+                        <dl>
+                            <dt class="item_hufu png"><a href="#"> 护肤</a></dt>
+                            <dd><a href="#">洁面</a></dd>
+                            <dd><a href="#">爽肤水</a></dd>
+                            <dd><a href="#">精华</a></dd>
+                            <dd><a href="#">乳液</a></dd>
+                            <dd><a href="#">面霜</a></dd>
+                            <dd><a href="#">眼霜</a></dd>
+                            <dd><a href="#">面膜</a></dd>
+                            <dd><a href="#">护肤套装</a></dd>
+                        </dl>
+                        <dl>
+                            <dt class="item_caizhuang png"><a href="#" target="_blank">彩妆</a></dt>
+                            <dd><a href="#">卸妆</a></dd>
+                            <dd><a href="#">BB霜</a></dd>
+                            <dd><a href="#">粉底液</a></dd>
+                            <dd><a href="#">粉饼</a></dd>
+                            <dd><a href="#">眼影</a></dd>
+                            <dd><a href="#">眼线笔</a></dd>
+                            <dd><a href="#">睫毛膏</a></dd>
+                            <dd><a href="#">眉笔</a></dd>
+                            <dd><a href="#">口红</a></dd>
+                            <dd><a href="#">腮红</a></dd>
+                        </dl>
+                        <dl style="border-bottom:none;border-left:none">
+                            <dt class="item_xiangfen png"><a href="#">香氛</a></dt>
+                            <dd><a href="#">女士香水</a></dd>
+                            <dd><a href="#">男士香水</a></dd>
+                            <dd><a href="#">中性香水</a></dd>
+                            <dd><a href="#">Q版香水</a></dd>
+                            <dd><a href="#">香水套装</a></dd>
+                            <dd><a href="#">精油</a></dd>
+                        </dl>
+                        <dl style="border-bottom:none">
+                            <dt class="item_nanshi png"><a href="">男士专区</a></dt>
+                            <dd><a href="">洁面</a></dd>
+                            <dd><a href="">爽肤水</a></dd>
+                            <dd><a href="">面霜</a></dd>
+                            <dd><a href="">精华</a></dd>
+                            <dd><a href="">护肤套装</a></dd>
+                            <dd><a href="">洗发</a></dd>
+                            <dd><a href="">沐浴</a></dd>
+                        </dl>
+                        <dl style="border-bottom:none">
+                            <dt class="item_hot png"><a>热门搜索</a></dt>
+                            <dd><a href="">面膜贴</a></dd>
+                            <dd><a href="">洗面奶</a></dd>
+                            <dd><a href="">唇膏</a></dd>
+                            <dd><a href="">去黑头</a></dd>
+                            <dd><a href="">祛斑</a></dd>
+                            <dd><a href="">隔离</a></dd>
+                            <dd><a href="">祛痘</a></dd>
+                            <dd><a href="">去角质</a></dd>
+                            <dd><a href="">指甲油</a></dd>
+                        </dl>
+                    </div>
+                </div>
+                <!--导航icon 动画-->
+                <ul id="icon_wrap" class="icon_Wrap">
+                    <li>
+                        <div class="divlist divlist01">
+                            <a href="#"><span class=""></span> <b>品牌防伪码</b></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="divlist divlist02">
+                            <a href="#"><span class="pop_th"></span> <b>7天无理由退货</b></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="divlist divlist03">
+                            <a href="#"><span class="pop_by"></span> <b>满159包邮</b></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--商品详情部分-->
+<div id="pop_detail_body" class="pop_detail_body">
+    <div class="breadcrumbs">
+        <a href="#" title="前往聚美优品首页">聚美优品首页</a>
+        &gt; <a href="#" title="前往名品特卖">名品特卖</a>
+        &gt; <a href="#">8款可选 薄款 2017新品 镂空透气款</a>
+    </div>
+    <div class="pop_new_main">
+        <div id="albums" class="albums">
+            <span class="spectial_mobile_icon">移动<br>专享</span>
+            <div class="pro_img">
+                <div class="jqzoom">
+                    <img id="deal_img" class="product_img" src="./images/3722480_pop_375_500_1.jpg" jqimg="./images/3722480_pop_750_1000_1.jpg" alt="">
+                </div>
+                <i class="zoom_icon"></i>
+            </div>
+
+            <div class="albums_control" id="albums_control">
+                <a href="javascript:;" class="cs cs_prev  fl disabled"></a>
+                <div class="ac_container">
+                    <ul>
+                        <li class="hover" style="opacity: 1;">
+                            <img src="./images/3722480_pop_375_500_1.jpg"
+                                 big="./images/3722480_pop_750_1000_1.jpg">
+                        </li>
+                        <li class="">
+                            <img src="./images/3722480_pop_375_500_2.jpg"
+                                 big="./images/3722480_pop_750_1000_2.jpg">
+                        </li>
+                        <li class="">
+                            <img src="./images/3722480_pop_375_500_3.jpg"
+                                 big="./images/3722480_pop_750_1000_3.jpg">
+                        </li>
+                    </ul>
+                </div>
+                <a href="javascript:;" class="cs cs_next  fr"></a>
+            </div>
+        </div>
+
+        <div class="pop_detail_top">
+
+            <h1 class="pop_detail_tit ">
+                <em>[移动专享]</em>8款可选-揭伊娜 薄款 2017新品 夏季透气款 超舒适不闷热文胸 无痕一片式 轻奢镂空聚拢文胸
+                日常售价79.9 不包邮
+                今日仅售39.9 包邮</h1>
+            <div class="pop_price_wrap clearfix">
+                <div class="pop_price">
+                    <span class="price_now"><em class="yen" name="39.9">¥ </em>39.9</span>
+                    <span class="pop_discount"><span></span></span>
+                    <span class="pop_timer_wrap">
+                        <span id="pop_detail_timer" class="newdeal_num pop_detail_timer">
+                            <i></i><em>00</em>天<em>18</em>小时<em>02</em>分<em>18</em>秒
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <!-- 满减 规则  -->
+            <div class="pop_rebates">
+                <ul></ul>
+            </div>
+
+            <div class="dot_line "></div>
+            <!-- 商家信息 -->
+            <div class="pop_change clearfix">
+                <span class="pop_tit ">运费</span>
+                <span class="pop_black" id="freight"><em class="free">新人包邮<em></em></em></span>
+            </div>
+            <div class="dot_line dot_line_top "></div>
+            <!-- 服务信息 -->
+            <div class="pop_change clearfix">
+                <span class="pop_tit">服务</span>
+                <ul class="commitment">
+                    <li><a href="#">质量保险</a></li>
+                    <li><a href="#">本商品不支持退货</a></li>
+                    <!--            <li><a href="http://pop.jumei.com/i/pop/rule" target="_blank">满159包邮</a></li>-->
+                    <li><a href="#">闪电发货</a></li>
+                    <!-- 海淘判断 -->
+                </ul>
+            </div>
+            <div class="dot_line dot_line_bottom"></div>
+            <!-- 选择  -->
+            <div class="pop_change pop_change_size">
+                <div class="model_wrap" style="">
+                    <dl class="change_wrap">
+                        <dt class="pop_meta_tit">型号</dt>
+                        <dd>
+                            <ul class="J_size_wrap">
+                                <li class="">
+                                    <a href="javascript:">
+                                        <span>肤色(基础款)32/70B</span></a><i>已选中</i>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:">
+                                        <span>肤色(基础款)34/75B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:">
+                                        <span>肤色(基础款)36/80B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li  class="">
+                                    <a href="javascript:">
+                                        <span>肤色(基础款)38/85B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:">
+                                        <span>黑色(基础款)32/70B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:">
+                                        <span>黑色(基础款)34/75B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:">
+                                        <span>黑色(基础款)36/80B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:">
+                                        <span>黑色(基础款)38/85B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:">
+                                        <span>银灰(基础款)32/70B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:">
+                                        <span>银灰(基础款)34/75B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li class=""><a href="javascript:">
+                                    <span>银灰(基础款)36/80B</span></a>
+                                    <i>已选中</i>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:">
+                                        <span>银灰(基础款)38/85B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li class=""><a href="javascript:">
+                                    <span>粉色(基础款)32/70B</span></a><i>已选中</i>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:">
+                                        <span>粉色(基础款)34/75B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:">
+                                        <span>粉色(基础款)36/80B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:">
+                                        <span>粉色(基础款)38/85B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li  class="">
+                                    <a href="javascript:">
+                                        <span>肤色(拉绳款)32/70B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li  class="">
+                                    <a href="javascript:">
+                                        <span>肤色(拉绳款)34/75B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li  class="">
+                                    <a href="javascript:">
+                                        <span>肤色(拉绳款)36/80B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:">
+                                        <span>肤色(拉绳款)38/85B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li  class="">
+                                    <a href="javascript:">
+                                        <span>黑色(拉绳款)32/70B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li class=" pop_disable ">
+                                    <a href="javascript:">
+                                        <span>黑色(拉绳款)34/75B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:">
+                                        <span>黑色(拉绳款)36/80B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:">
+                                        <span>黑色(拉绳款)38/85B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li  class="">
+                                    <a href="javascript:">
+                                        <span>银灰(拉绳款)32/70B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li  class="">
+                                    <a href="javascript:">
+                                        <span>银灰(拉绳款)34/75B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:">
+                                        <span>银灰(拉绳款)36/80B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:">
+                                        <span>银灰(拉绳款)38/85B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:">
+                                        <span>粉色(拉绳款)32/70B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li  class="">
+                                    <a href="javascript:">
+                                        <span>粉色(拉绳款)34/75B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:">
+                                        <span>粉色(拉绳款)36/80B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:">
+                                        <span>粉色(拉绳款)38/85B</span>
+                                    </a>
+                                    <i>已选中</i>
+                                </li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <div class="model_alert">请选择型号</div>
+                </div>
+                <div class="phone_subscribe_wrap" style="display:none;">
+                    <a href="#" class="phone_subscribe">
+                        <i></i>订阅开售短信
+                    </a>
+                </div>
+
+                <dl class="change_wrap num_wrap" style="">
+                    <dt class="pop_meta_tit">数量</dt>
+                    <dd id="J_Amount">
+                        <span class="pop_amount_wrap ">
+                            <a href="javascript:;" class="increase_num">+</a>
+                            <input type="text" title="请输入购买量" maxlength="7" user_purchase_limit="0" value="1" class="amout_input">
+                            <a href="javascript:;" class="decrease_num">-</a>
+                        </span>
+                        <span id="J_StockTips"></span>
+                    </dd>
+                </dl>
+            </div>
+
+            <div id="status_area">
+                <!--非预售-->
+                <div style="" class="pop_change clearfix buy_btn_wrap ">
+                    <a href="javascript:;" class="pop_buy_btn addcart_btn" id="add_to_cart">
+                        <i></i>加入购物车</a>
+                </div>
+                <span class="pop_sold"><i></i><b>3691</b>人已购买</span>
+                <a href="#" target="_blank" class="mobile_ewr"><img src="./images/mobile_ewr.jpg"></a>
+            </div>
+            <div class="three_info_note">
+                本商品由<span class="three_business">兰芝服饰</span>
+                直接发货并提供售后服务，您在购买过程中有任何疑问可咨询聚美客服。
+            </div>
+            <div class="sd_reco deal_reco" style="display: none;">
+                <h2>此商品已抢完，猜您可能喜欢</h2>
+                <p class="no_data" style="background-image: none;">对不起，暂时没有数据！</p>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="deal_detail clearfix one_column">
+        <input id="catid" type="hidden" value="949">
+        <div class="main_detail">
+            <div class="deal_nav_con" id="deal_nav_con">
+                <div class="deal_nav">
+                    <ul>
+                        <li class=""><a href="#deal_special">商品参数</a><em></em></li>
+                        <li><a href="#deal_details">商品详情</a><em></em></li>
+                        <li class="deal_reco"><a href="#deal_reco">为您推荐</a><em></em></li>
+                        <li><a href="#deal_guideline">商品咨询</a></li>
+                    </ul>
+
+                    <div class="db_price"><em>¥</em>39.9</div>
+                </div>
+            </div>
+            <!--发货公告start-->
+            <!--发货公告end-->
+            <!--品牌授权start-->
+            <!--品牌授权end-->
+            <div class="deal_intro J_lazyItems" id="deal_intro" style="padding-top: 15px;" loaded="loaded">
+                <div class="deal_tit">
+                    <h1>商品介绍<i></i></h1>
+                </div>
+                <div class="intro_wrap deal_com">
+                    揭伊娜 薄款 2017新品 夏季透气款 超舒适不闷热文胸 无痕一片式 轻奢镂空聚拢文胸
+                </div>
+            </div>
+            <div class="deal_specs clearfix" id="deal_special">
+                <div class="deal_tit">
+                    <h1>商品参数<i></i></h1>
+                </div>
+                <table>
+                    <tbody>
+                    <tr>
+                        <th>商品名称：</th>
+                        <td>8款可选 薄款 2017新品 镂空透气款</td>
+                    </tr>
+                    <tr>
+                        <th>品牌：</th>
+                        <td>揭伊娜</td>
+                    </tr>
+                    <tr>
+                        <th>分类：</th>
+                        <td>聚拢文胸</td>
+                    </tr>
+                    <tr>
+                        <th>退货政策：</th>
+                        <td>
+                            本商品不支持退货
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>上市时间：</th>
+                        <td>2017年6月</td>
+                    </tr>
+                    <tr>
+                        <th>薄厚：</th>
+                        <td>夏季薄款</td>
+                    </tr>
+                    <tr>
+                        <th>规格：</th>
+                        <td>基础款 拉绳款</td>
+                    </tr>
+                    <tr>
+                        <th>颜色：</th>
+                        <td>肤色 粉色 黑色 银灰</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <img src="./images/3722480_pop_375_500_1.jpg">
+            </div>
+            <div class="deal_others">
+                <div class="deal_hot" id="deal_hot"></div>
+                <div class="deal_details J_lazyItems" id="deal_details" loaded="loaded">
+                    <div class="deal_tit">
+                        <h1>商品详情<i></i></h1>
+                    </div>
+                    <div class="details_wrap deal_com">
+                        <p>
+                            <span style="font-family:'Microsoft YaHei';font-size:14px;">必购理由：</span>
+                        </p>
+                        <p>
+                            <span  style="font-family:'Microsoft YaHei';font-size:14px;">
+                                1：新 &nbsp; &nbsp;&nbsp;</span>
+                            <span style="font-family:'Microsoft YaHei';font-size:14px;">2017夏季新品</span>
+                        </p>
+                        <p>
+                            <span style="font-family:'Microsoft YaHei';font-size:14px;">
+                                2：时尚 &nbsp;款式新颖时尚特别 适合年轻人
+                            </span>
+                        </p>
+                        <p>
+                            <span style="font-family:'Microsoft YaHei';font-size:14px;">
+                                3：透气 &nbsp;大镂空透气 加多少个透气小孔（我也不知）
+                            </span>
+                        </p>
+                        <p>
+                            <span style="font-family:'Microsoft YaHei';font-size:14px;">
+                                4：百搭 &nbsp;无痕无钢圈 夏季必备
+                            </span>
+                        </p>
+                        <p>
+                            <img src="./images/52213113.jpg" alt="">&nbsp;
+                            <img src="./images/52215565.jpg" alt="">&nbsp;
+                            <img src="./images/52227389.jpg" alt="">&nbsp;
+                            <img src="./images/52304149.jpg" alt="">&nbsp;
+                            <img src="./images/52352521.jpg" alt="">&nbsp;
+                            <img src="./images/5236343.jpg" alt="">&nbsp;
+                            <img src="./images/52371430.jpg" alt="">&nbsp;
+                            <img src="./images/52371291.jpg" alt="">&nbsp;
+                            <img src="./images/52428265.jpg" alt="">&nbsp;
+                        </p>
+                        <p>
+                            <img src="./images/55219051.jpg" alt="">&nbsp;
+                        </p>
+                        <p><img src="./images/38056307.jpg" alt="">&nbsp;
+                            <img src="./images/38069131.jpg" alt="">&nbsp;
+                            <img src="./images/38077354.jpg" alt="">&nbsp;
+                            <img src="./images/38078428.jpg" alt="">&nbsp;
+                            <img src="./images/38081566.jpg" alt="">&nbsp;
+                            <img src="./images/38086205.jpg" alt="">&nbsp;
+                        </p>
+                    </div>
+                </div>
+                <div class="deal_usage J_lazyItems" id="deal_usage"></div>
+                <div class="marketprice_wrapper">
+                    <img src="./images/marketprice_pc.png" class="marketprice_pc">
+                </div>
+                <div class="deal_reco J_lazyItems" id="deal_reco"></div>
+                <div class="deal_guideline" id="deal_guideline">
+                    <div class="deal_tit">
+                        <h1>商品咨询<i></i></h1>
+                    </div>
+                    <div class="deal_sales_listp clearfix">
+                        <a class="return" href="#" title="7天无理由退货"></a>
+                        <a class="genuine" href="#" title="正品保障"></a>
+                        <a class="red_bag" href="#" title="支持聚美红包"></a>
+                    </div>
+                    <h2>7天无理由退货政策</h2>
+                    <p class="adv_large">小美理解您在购物中遇到的问题，特别是退货时的各种烦恼，现在带您了解聚美优品7天无理由退货服务。</p>
+                    <h3>1、改变主意了，不想要？小美说，可以退！</h3>
+                    <p>商品签收后7天内（以快递公司的送货单上的签收日期为准），商品及商品本身包装保持聚美优品出售时原状且配件赠品资料等齐全，不影响二次销售，即可无理由退货。</p>
+                    <p>退货细则和流程请见 <a href="#" target="_blank">聚美优品“名品特卖”服务总则</a></p>
+                    <h3>2、心疼退货邮费，怕麻烦？小美说，我来出！</h3>
+                    <p>符合“7天无理由退货”政策的商品退货时聚美都会给予10元运费补贴，并以余额形式发放到您的聚美账户，如多个订单一个包裹寄回的，聚美优品将补贴一次运费；（拒收平邮与到付），退回商品费用（不包含快递费用）将按原支付路径返还。</p>
+                    <div class="deal_service_consult clearfix">
+                        <h2>售后咨询</h2>
+                        <a href="#"></a>
+                    </div>
+                    <p class="freight_q"><i>Q</i>【名品特卖】专场售卖的商品都是正品吗？ </p>
+                    <p class="freight_a"><i>A</i>小美向您郑重承诺在售商品均为正品。 </p>
+                    <p class="freight_q"><i>Q</i>购买【名品特卖】商品时可以使用现金劵和红包吗？ </p>
+                    <p class="freight_a"><i>A</i>小美时刻都在帮您精打细算，名品特卖的产品支持使用名品专属或全场通用现金券和红包。</p>
+                    <p class="freight_q"><i>Q</i>购买【名品特卖】商品时可以选择货到付款吗？ </p>
+                    <p class="freight_a"><i>A</i>小美正在努力尝试让您更加便捷的购物，不久后即可开通货到付款哦。</p>
+                    <p class="freight_q"><i>Q</i>什么样的商品不能支持7天无理由退货？ </p>
+                    <p class="freight_a"><i>A</i>小美提醒您，出于商品的特殊性考虑，【名品特卖】部分商品不支持7天无理由退货，此类商品会在抢购条下方和商品参数“退货政策”处标明。</p>
+                    <p class="freight_q"><i>Q</i>请问【名品特卖】商品如何退货呢？ </p>
+                    <p class="freight_a"><i>A</i>小美很抱歉商品不能让您满意，想退货请一定仔细阅读下方退货流程和说明：</p>
+                    <ul class="deal_service_listp clearfix">
+                        <li class="deal_wid1">申请退货<i>&gt;</i></li>
+                        <li class="deal_wid1">申请成功<i>&gt;</i></li>
+                        <li class="deal_wid2">退货商品快递至“发货品牌商” 指定地址(以短信和邮件告知)<i>&gt;</i></li>
+                        <li class="deal_wid3">品牌商收到退货确认<i>&gt;</i></li>
+                        <li class="deal_wid4">【名品特卖】将相应货款原路径退回<i>&gt;</i></li>
+                        <li class="deal_wid5">退货成功</li>
+                    </ul>
+                    <p>
+                        注：小美提示您，请在退货申请批准后及时寄出退货商品，为了避免给您带来不必要的麻烦，请在批准退货申请后7天内尽快将商品寄回给商家，如超过20天商家仍未收到，小美会默认为您已取消了退货申请。请一定记得要在7天内寄回哦。</p>
+                </div>
+            </div>
+        </div>
+        <div class="recent_view J_lazyItems"></div>
+    </div>
+</div>
+<!--右边公共部分-->
+<div class="ibar" id="iBar"
+     style="z-index: 9990; right: 0px; position: fixed; top: 0px; display: block;">
+    <div class="ibar_main_panel" style="left: 40px;">
+        <ul class="ibar_mp_center">
+            <li class="mpbtn_login">
+                <a href=""><s></s>登录</a>
+            </li>
+            <li class="mpbtn_cart" style="left: -40px;">
+                <a href="./cart.html"><s></s><span class="text">购物车</span><span class="cart_num">0</span></a>
+            </li>
+            <li class="mpbtn_asset"><a href="#"><s></s>我的财产</a>
+                <div class="mp_tooltip" style="visibility: hidden;">我的财产<s class="icon_arrow_right_black"></s></div>
+            </li>
+            <li class="mpbtn_favorite"><a href="#"><s></s>我的心愿单</a>
+                <div class="mp_tooltip">我的心愿单<s class="icon_arrow_right_black"></s></div>
+            </li>
+            <li class="mpbtn_histroy"><a href="#"><s></s>我看过的</a>
+                <div class="mp_tooltip">我看过的<s class="icon_arrow_right_black"></s></div>
+            </li>
+        </ul>
+        <ul class="ibar_mp_bottom">
+            <li class="mpbtn_qrcode">
+                <a href="#"><s></s>手机聚美</a>
+                <div class="mp_qrcode" style="display: none;">
+                    <img src="./images/qrcode.png" width="148" height="175">
+                    <s class="icon_arrow_white"></s>
+                </div>
+            </li>
+            <li class="mpbtn_support">
+                <a href="#" data-plugin="iBarFaq"><s></s>客服中心</a>
+                <div class="mp_tooltip" style="visibility: hidden;">客服中心<s class="icon_arrow_right_black"></s></div>
+            </li>
+            <li class="mpbtn_gotop" id="gotop" style="visibility: visible; display: block;"><a href="#"class="btn_gotop"><s></s>返回顶部</a>
+                <div class="mp_tooltip">返回顶部<s class="icon_arrow_right_black"></s></div>
+            </li>
+        </ul>
+    </div>
+    <div class="ibar_login_box  status_logout">
+        <div class="avatar_box">
+            <p class="avatar_imgbox">
+                <img src="./images/avatar_nonesign.jpg" alt="头像" width="62" height="62">
+            </p>
+            <p>你好！请&nbsp;<a href="#">登录</a>&nbsp;|&nbsp;<a href="#">注册</a></p>
+        </div>
+        <div class="login_btnbox">
+            <a href="#" class="login_order">我的订单</a>
+            <a href="" class="login_favorite" target="_blank">我的收藏</a>
+        </div>
+        <s class="icon_arrow_white"></s>
+        <a href="javascript:;" class="ibar_closebtn" title="关闭"></a>
+    </div>
+    <div class="ibar_sub_panel"><a href="javascript:;" class="ibar_closebtn" title="关闭"></a><span
+            class="ibar_loading_text">正在为您努力加载数据！</span></div>
+    <div class="ibar_tips_box">
+        <div class="tips_cash_box">
+            <div class="newuser_tips_cash"><h3>您已获得百元现金券</h3>
+                <p>今天之内下单最多立减50元</p><a class="coupon_btn" href="">注册领取</a></div>
+            <s class="icon_arrow_white"></s><a href="javascript:;" class="ibar_closebtn" title="关闭"></a></div>
+    </div>
+</div>
+<!--底部-->
+<div id="footer" class="footer">
+    <div id="footer_textarea">
+        <div class="footer_top">
+            <div class="footer_con footer_credit" id="footer_credit">
+                <a href="http://hd.jumei.com/act/6-478-2232-guarantee.html?from=footer" class="foot_link mostmall"
+                   target="_blank" rel="nofollow">
+                    <span class="first corn"></span>
+                    <span class="con"><b>值得信赖美妆电商</b></span>
+                    四千万用户信赖
+                </a>
+                <a href="#" class="foot_link quality">
+                    <span class="corn"></span><span class="con"><b>成功在美上市</b></span>股票代码NYSE:JMEI
+                </a>
+                <a href="#" class="foot_link back">
+                    <span class="corn"></span><span class="con"><b>品牌防伪码</b></span>支持品牌官网验真
+                </a>
+                <a href="#" class="foot_link depot">
+                    <span class="corn"></span><span class="con"><b>30天无理由退货</b></span>只要不满意无理由退货
+                </a>
+                <a href="#" class="foot_link consignment">
+                    <span class="corn"></span><span class="con"><b>百万用户口碑</b></span>帮你只选对的,不选贵的
+                </a>
+                <a href="" class="foot_link packaging">
+                    <span class="corn"></span><span class="con"><b>订单闪电发货</b></span>1.5小时订单急速出库
+                </a>
+                <a href="" class="foot_link confide">
+                    <span class="corn"></span><span class="con"><b>大牌明星热荐</b></span>打造精致明星脸
+                </a>
+            </div>
+        </div>
+        <div class="footer_top_sen">
+            <div class="footer_con footer_links" id="footer_links">
+                <ul class="linksa">
+                    <li class="links">服务保障</li>
+                    <li><a href="#">品牌真品防伪码</a></li>
+                    <li><a href="">正品保证</a></li>
+                    <li><a href="">30天无条件退货</a></li>
+                    <li><a href="">7×24小时客服服务</a></li>
+                    <li><span class="footer_zcemail">总裁邮箱ceo@jumei.com</span></li>
+                </ul>
+                <ul class="linksb">
+                    <li class="links">使用帮助</li>
+                    <li><a href="">新手指南</a></li>
+                    <li><a href="">常见问题</a></li>
+                    <li><a href="">帮助中心</a></li>
+                    <li><a href="">用户协议</a></li>
+                </ul>
+                <ul class="linksc">
+                    <li class="links">支付方式</li>
+                    <li><a href="">货到付款</a></li>
+                    <li><a href="">在线支付</a></li>
+                    <li><a href="">余额支付</a></li>
+                    <li><a href="">现金券支付</a></li>
+                </ul>
+
+                <ul class="linksd">
+                    <li class="links">配送方式</li>
+                    <li><a href="">包邮政策</a></li>
+                    <li><a href="">配送说明</a></li>
+                    <li><a href="">运费说明</a></li>
+                    <li><a href="">验货签收</a></li>
+                </ul>
+
+                <ul class="linkse">
+                    <li class="links">售后服务</li>
+                    <li><a href="">正品承诺</a></li>
+                    <li><a href="">售后咨询</a></li>
+                    <li><a href="">退货政策</a></li>
+                    <li><a href="">退货办理</a></li>
+                </ul>
+                <div class="links_er_box">
+                    <ul class="linksf">
+                        <li class="links">手机聚美</li>
+                        <li><span class="link_bottom_pic"></span></li>
+                        <li>下载移动客户端</li>
+                    </ul>
+                    <ul class="linksg">
+                        <li class="links">聚美微信</li>
+                        <li><span class="link_bottom_pic"></span></li>
+                        <li>聚美官方微信</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer_dy" id="footer_dy">
+            <div class="play_box"><span class="play"></span></div>
+        </div>
+        <div class="footer_center">
+            <div class="footer_con" id="footer_link">
+                <a href="">关于聚美优品</a>
+                <a href="">INVESTOR RELATIONS</a>
+                <a href="">商家入驻</a>
+                <a href="">获取更新</a>
+                <a href="">加入聚美</a>
+                <a href="">品牌合作专区</a>
+                <a href="">网站联盟</a>
+                <a href="">媒体报道</a>
+                <a href="">商务合作</a>
+            </div>
+        </div>
+        <div id="footer_copyright" class="footer_copyright">
+            <div class="footer_con">
+                <p class="footer_copy_con">
+                    COPYRIGHT © 2010-2017 北京创锐文化传媒有限公司 JUMEI.COM 保留一切权利。
+                    客服热线：400-123-8888
+                    <br>
+                    京公网安备 11010102001226 | <a href="#">京ICP证111033号</a>
+                    | 食品流通许可证 SP1101051110165515（1-1）
+                    | <a href="#">营业执照</a>
+                </p>
+                <p>
+                    <a href="javascript:void(0)" class="footer_copy_logo logo01"></a>
+                    <a href="" class="footer_copy_logo logo02"></a>
+                    <a href="javascript:void(0)" class="footer_copy_logo logo03"></a>
+                    <a href="javascript:void(0)" class="footer_copy_logo logo04"></a>
+                    <a href="#" class="footer_copy_logo logo05"></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

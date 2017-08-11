@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车 - 聚美优品</title>
+    <link rel="stylesheet" href="./css/cart.css"/>
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/jquery.cookie.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/cart.js"></script>
+</head>
+<body>
+<!--头部分-->
+<div style="background: white;">
+    <div class="cart_top" id="headerTopLeft">
+        <div class="user_box" id="JS_user_box">
+            <div>聚美优品欢迎您，<a href="./login.html">登录</a><i class="tips">|</i>
+                <a href="./signup.htmlp">免费注册</a></div>
+        </div>
+    </div>
+    <div class="cart_top" style="display: none" id="headerTopLeft1">
+        <div class="user_box" id="JS_user_box1"><div>欢迎您，
+            <a href="./index.html" class="username"></a>&nbsp;
+            <a href="./login.html" class="out signout">[退出]</a><i class="tips">|</i>
+           </div></div>
+    </div>
+
+    <div class="cart_header_box">
+        <div class="cart_header clearfix">
+            <h1 class="logo_box">
+                <a href="./index.html" id="home">
+                    <img src="./images/cart_logo.jpg" alt="化妆品团购">
+                </a>
+            </h1>
+            <div class="order_path order_path_1">
+            </div>
+        </div>
+    </div>
+</div>
+<!--主要内容部分-->
+<div id="container" style="width: auto;">
+    <div class="content_show_wrapper">
+        <div class="cart_notification cart_error" style="">
+            <div class="message"><p></p></div>
+        </div>
+        <div id="group_show">
+            <div class="content_header clearfix">
+                <div class="cart_timer_wrapper">
+                    <i class="icon_small png"></i>
+                    <span class="cart_timer_counting">
+                        请在<span class="cart_timer_text">04分34秒</span>
+                        内去结账，并在下单后
+                        <span class="pink">20</span>
+                        分钟内完成支付 </span>
+                    <span class="cart_timer_out">
+                        已超过购物车商品保留时间，请尽快结算。
+                    </span>
+                    [<a class="cart_timer_tip float_box" href="javascript:void(0)"> ?
+                        <div class="pop_box"><span class="arrow_t_1"><span class="arrow_t_2"></span></span>
+                            <div class="timer_tip_text"> 由于商品库存有限，我们只能暂为您最多保存20分钟，<br>20分钟后购物车将被清空，请尽快结算订单。</div>
+                        </div>
+                    </a>]
+                </div>
+                <div class="top_banner">
+                    <ul class="header_icons">
+                        <li><span> <i class="icon_zhenpin header_icon png"></i> 真品防伪码 </span></li>
+                        <li><span> <i class="icon_tuihuo header_icon png"></i> 30天无条件退货 </span></li>
+                        <li><span> <i class="icon_baoyou header_icon png"></i> 美妆满2件或299元包邮 </span></li>
+                    </ul>
+                </div>
+                <div class="common_shippment">
+                    <i class="icon_small icon_baoyou png">包邮</i>
+                    新用户首单满39元包邮,自营非食品类满两件或满299元包邮
+                </div>
+            </div>
+            <div class="groups_wrapper">
+                <table class="cart_group_item  cart_group_item_product">
+                    <thead>
+                    <tr>
+                        <th class="cart_overview">
+                            <div class="cart_group_header">
+                                <input type="checkbox" class="js_group_selector cart_group_selector" checked="checked">
+                                <h2> 聚美优品发货 </h2></div>
+                        </th>
+                        <th class="cart_price">聚美价（元）</th>
+                        <th class="cart_num">数量</th>
+                        <th class="cart_total">小计（元）</th>
+                        <th class="cart_option">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="cart_item ">
+                        <td valign="top">
+                            <div class="cart_item_desc clearfix">
+                                <input type="checkbox" class="js_item_selector cart_item_selector" checked="'checked'/">
+                                <div class="cart_item_desc_wrapper">
+                                    <a class="cart_item_pic" href="#">
+                                        <img src="./images/3722480_pop_375_500_1.jpg">
+                                        <span class="sold_out_pic png"></span>
+                                    </a>
+                                    <span class="cart_item_global">[极速免税]</span>
+                                    <a class="cart_item_link" href="#">薄款 2017新品 夏季透气款 超舒适不闷热文胸 无痕一片式 轻奢镂空聚拢文胸 </a>
+                                    <p class="sku_info"> 型号：<span class="cart_item_attribute">&nbsp;-08 ACTIVE</span>&nbsp;
+                                        容量：<span class="cart_item_capacity">3.5g</span></p>
+                                    <div class="sale_info clearfix"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cart_item_price"><p class="decrease_one disabled ">39.90</p>
+                                <p class="market_price ">39.90</p></div>
+                        </td>
+                        <td>
+                            <div class="cart_item_num ">
+                                <div class="item_quantity_editer clearfix">
+                                    <span class="decrease_one">-</span>
+                                    <input class="item_quantity" type="text" value="1">
+                                    <span class="increase_one ">+</span></div>
+                                <div class="item_shortage_tip"></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cart_item_total"><p class="item_total_price">39.90</p>
+                                <p>省 <span class="item_saved_price">23.00</span></p></div>
+                        </td>
+                        <td>
+                            <div class="cart_item_option">
+                                <a class="icon_small delete_item png" href="javascript:void(0)" title="删除"></a></div>
+                        </td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan=" 5 "> 商品金额： <span class="group_total_price">¥39.90</span></td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="common_handler_anchor"></div>
+            <div class="common_handler">
+                <div class="right_handler">
+                    共 <span class="total_amount"> 1 </span> &nbsp;件商品 &nbsp;&nbsp; 商品应付总额：
+                    <span class="total_price">¥39.90</span> <a id="go_to_order" class="btn" href="./confirm.html">去结算</a>
+                </div>
+                <label for="js_all_selector" class="cart_all_selector_wrapper">
+                    <input type="checkbox" >
+                    全选 </label> <a class="go_back_shopping" href="#">继续购物</a>
+                <span class="seperate_line">|</span> <a class="clear_cart_all" href="">清空选中商品</a>
+            </div>
+            <div class="content_footer clearfix">
+                <div class="cart_timer_wrapper"><i class="icon_small png"></i> <span
+                        class="cart_timer_counting"> 请在 <span class="cart_timer_text">04分34秒</span> 内去结账，并在下单后 <span
+                        class="pink">20</span> 分钟内完成支付 </span> <span class="cart_timer_out"> 已超过购物车商品保留时间，请尽快结算。 </span>
+                    [<a class="cart_timer_tip float_box" href="javascript:void(0)"> ?
+                        <div class="pop_box"><span class="arrow_t_1"><span class="arrow_t_2"></span></span>
+                            <div class="timer_tip_text"> 由于商品库存有限，我们只能暂为您最多保存20分钟，<br>20分钟后购物车将被清空，请尽快结算订单。</div>
+                        </div>
+                    </a>]
+                </div>
+            </div>
+        </div>
+        <div id="cart_side_nav"><a href="javascript:void(0)"></a></div>
+    </div>
+    <div class="recommend_box" id="JS_recommend_box">
+        <div class="nav_tips"><a href="javascript:;" class="JS_recommend_nav active">购买的还买了 <i class="right_border"></i>
+        </a> <a href="javascript:;" class="JS_recommend_nav">今日备受欢迎 <i class="right_border"></i> </a> <a
+                href="javascript:;" class="JS_recommend_nav">最近查看过 </a></div>
+        <div>
+            <ul class="clearfix JS_recommend_cont">
+                <li class="list">
+                    <div>
+                        <div><a href="#">
+                            <img src="./images/3226743_160_160.jpg" width="160" height="160"></a></div>
+                        <div class="tips_info_box">
+                            <a href="#" class="tips_info">
+                                【黄皮福音】the saem红管哑光唇膏，一抹轻松显白抬气色！
+                            </a>
+                        </div>
+                        <div class="price_grey">
+                            <span class="price">¥45.0</span>
+                        </div>
+                        <div>
+                            <a href="javascript:;" class="cart_btn JS_add_cart_btn">加入购物车</a></div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div>
+                        <div>
+                            <a href="#">
+                                <img src="./images/3242748_160_160.jpg" width="160" height="160">
+                            </a>
+                        </div>
+                        <div class="tips_info_box">
+                            <a href="#" class="tips_info">
+                                Pony推荐】eglips马卡龙蜜粉饼,彩妆圈的“吸油纸粉饼”,上脸一秒如同ps!
+                            </a>
+                        </div>
+                        <div class="price_grey">
+                            <span class="price">¥59.9</span>
+                        </div>
+                        <div>
+                            <a href="javascript:;" class="cart_btn JS_add_cart_btn">加入购物车</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div>
+                        <div>
+                            <a href="#">
+                                <img src="./images/3305568_160_160.jpg" width="160" height="160">
+                            </a>
+                        </div>
+                        <div class="tips_info_box">
+                            <a href="#" class="tips_info">
+                                <span class="discount">5.3折/</span>
+                                菲诗小铺植物防晒隔离霜，隔绝肌肤伤害，一抹告别黄脸婆！
+                            </a>
+                        </div>
+                        <div class="price_grey">
+                            <span class="price">¥28.0</span>
+                            <span class="grey">¥53.00</span>
+                        </div>
+                        <div>
+                            <a href="javascript:;" class="cart_btn JS_add_cart_btn">加入购物车</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <ul class="clearfix JS_recommend_cont" style="display:none;">
+                <li class="list">
+                    <div>
+                        <div>
+                            <a href="#">
+                                <img src="./images/1388308_160_160.jpg" width="160" height="160">
+                            </a>
+                        </div>
+                        <div class="tips_info_box">
+                            <a href="#" class="tips_info">
+                                <span class="discount">8.8折/</span>
+                            美国•魅可（MAC）时尚唇膏3g，爆款色号上架，唇色诱惑无法抗拒！
+                            </a>
+                        </div>
+                        <div class="price_grey">
+                            <span style="margin-right: 5px">套装价:</span> <span
+                                class="price">¥149.0</span> <span class="grey">¥170.00</span></div>
+                        <div><a href="javascript:;" class="cart_btn JS_add_cart_btn" >加入购物车</a></div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div>
+                        <div><a href="http://item.jumeiglobal.com/ht170802p2573063t2.html?from=jmglobal"
+                                target="_blank"><img src="./images/2573063_160_160.jpg" width="160"
+                                height="160"></a></div>
+                        <div class="tips_info_box"><a
+                                href="http://item.jumeiglobal.com/ht170802p2573063t2.html?from=jmglobal" target="_blank"
+                                class="tips_info"> <span class="discount">6.1折/</span> 日本•防晒更是防老！
+                            安耐晒小金瓶17年新版X2，夏日防晒“金”钟罩。 </a></div>
+                        <div class="price_grey"><span class="price">¥365.0</span> <span class="grey">¥600.00</span>
+                        </div>
+                        <div><a href="javascript:;" class="cart_btn JS_add_cart_btn" >加入购物车</a></div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div>
+                        <div><a href="http://item.jumeiglobal.com/ht170802p1467998t2.html?from=jmglobal"
+                                target="_blank"><img
+                                src="./images/1467998_160_160.jpg" width="160"
+                                height="160"></a></div>
+                        <div class="tips_info_box"><a
+                                href="http://item.jumeiglobal.com/ht170802p1467998t2.html?from=jmglobal" target="_blank"
+                                class="tips_info"> 法国•想要男人沉醉，何须露骨？浪凡 光韵女士浓香水100ml，让你的性感闻得到！ </a></div>
+                        <div class="price_grey"><span class="price">¥189.0</span></div>
+                        <div><a href="javascript:;" class="cart_btn JS_add_cart_btn" >加入购物车</a></div>
+                    </div>
+                </li>
+            </ul>
+            <ul class="clearfix JS_recommend_cont" style="display:none;">
+                <li class="list">
+                    <div>
+                        <div><a href="http://item.jumei.com/d170805p2222187.html" target="_blank"><img
+                                src="./images/2222187_160_160.jpg" width="160"
+                                height="160"></a></div>
+                        <div class="tips_info_box"><a href="http://item.jumei.com/d170805p2222187.html" target="_blank"
+                                                      class="tips_info"> 德国•施华蔻8金纯盈润精油洗护套装 </a></div>
+                        <div class="price_grey"><span class="price">¥139.0</span></div>
+                        <div><a href="javascript:;" class="cart_btn JS_add_cart_btn">加入购物车</a></div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div>
+                        <div><a href="http://item.jumei.com/d170805p3622404dpt.html" target="_blank">
+                            <img src="./images/3622404_160_160.jpg" width="160"
+                                height="160"></a></div>
+                        <div class="tips_info_box">
+                            <a href="http://item.jumei.com/d170805p3622404dpt.html" target="_blank" class="tips_info"> 中国•魔法城堡便携式迷你剃毛器 </a></div>
+                        <div class="price_grey"><span class="price">¥49.0</span></div>
+                        <div><a href="javascript:;" class="cart_btn JS_add_cart_btn">加入购物车</a></div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div>
+                        <div><a href="http://item.jumei.com/d170805p3555836.html" target="_blank">
+                            <img src="./images/3555836_160_160.jpg" width="160" height="160"></a></div>
+                        <div class="tips_info_box">
+                            <a href="http://item.jumei.com/d170805p3555836.html" target="_blank"
+                                                      class="tips_info"> 日本•za二十周年限定隔离美肌无瑕套装 </a></div>
+                        <div class="price_grey"><span class="price">¥59.0</span></div>
+                        <div><a href="javascript:;" class="cart_btn JS_add_cart_btn">加入购物车</a></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--底部-->
+<div id="footer" class="footer">
+    <div id="footer_textarea">
+        <div id="footer_copyright" class="footer_copyright">
+            <div class="footer_con">
+                <p class="footer_copy_con">
+                    COPYRIGHT © 2010-2017 北京创锐文化传媒有限公司 JUMEI.COM 保留一切权利。
+                    客服热线：400-123-8888
+                    <br>
+                    京公网安备 11010102001226 | <a href="#">京ICP证111033号</a>
+                    | 食品流通许可证 SP1101051110165515（1-1）
+                    | <a href="#">营业执照</a>
+                </p>
+                <p>
+                    <a href="javascript:void(0)" class="footer_copy_logo logo01"></a>
+                    <a href="" class="footer_copy_logo logo02"></a>
+                    <a href="javascript:void(0)" class="footer_copy_logo logo03"></a>
+                    <a href="javascript:void(0)" class="footer_copy_logo logo04"></a>
+                    <a href="#" class="footer_copy_logo logo05"></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
